@@ -27,3 +27,25 @@ def plot_loss_curve(history):
   plt.ylabel("Accuracy")
   plt.title("Accurac")
   plt.legend()
+
+  # Create and compile a Tensorflow Hub Feature Extractor
+  def create_and_compile_model(model_url, num_classes, IMG_SIZE =224):
+    import tensorflow.hub as hub
+    import tensorflow as tf
+    """
+    takes a tensorflow hub feature extractor mode URl, creates,compiles and returns it back.
+    Input:
+    model_url ( String) : URL of the tensorflow HUB feature extractor model.
+    num_classes ( int) : Number of output neurons in the output_layer, should be equal to the number of classes.
+    IMG_SIZE ( int):  Input size of the feature extractor model .default size is 224 having 3 color channel.
+    Output:
+    A compiled Keras Sequantial layer with model_url as feature extractor and Dense output layer as number of classes output neuron.
+    """
+    # Download the pre-trained model and save it as a Keras Layer
+    feature_extractor_layer = hub.KerasLayer(model_url, trainable = False, name ='feature_extractor_layer', input_layer = (IMG_SIZE,IMG_SIZE,3))
+    #Create our own model.
+    model = tf.keras.Sequential([ feature_extractor_layer, layers.Dense(10,activation = "softmax", name = "Output_Layer")])
+    #Compile the model.
+    model.compile(loss = 'categorical_crossentropy', optimizer = tf.keras.optimizers.Adam(), metrics =['accuracy'))
+    return model                                                   
+                                                                                                       
