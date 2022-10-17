@@ -25,11 +25,11 @@ def plot_loss_curve(history):
   plt.plot(epochs, validation_accuracy, label ="Validation Accuracy") 
   plt.xlabel("epochs")
   plt.ylabel("Accuracy")
-  plt.title("Accurac")
+  plt.title("Accuracy")
   plt.legend()
 
   # Create and compile a Tensorflow Hub Feature Extractor
-  def create_compile_model(model_url, num_classes, IMG_SIZE =224):
+  def create_model(model_url, num_classes, IMG_SIZE =224):
     import tensorflow_hub as hub
     import tensorflow as tf
     from tensorflow.keras import layers
