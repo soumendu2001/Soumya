@@ -5,6 +5,7 @@ def plot_loss_curve(history):
   Returns seperate loss and accuracy curves for training and valiation metrics.
   Args:
   history: Tensorflow model history object (see: https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/History)
+  
   """
   training_loss = history.history["loss"]
   validation_loss = history.history["val_loss"]
