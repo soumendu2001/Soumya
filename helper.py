@@ -64,3 +64,5 @@ def plot_loss_curve(history):
       zip_ref = zipfile.Zipfile(filename)
       zip_ref.extract_all()
       zip_ref.close()
+  
+    
