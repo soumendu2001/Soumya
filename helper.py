@@ -29,7 +29,7 @@ def plot_loss_curve(history):
   plt.title("Accuracy")
   plt.legend()
 
-  # Create and compile a Tensorflow Hub Feature Extractor
+# Create and compile a Tensorflow Hub Feature Extractor
 def create_model(model_url, num_classes, IMG_SIZE =224):
   import tensorflow_hub as hub
   import tensorflow as tf
@@ -65,4 +65,3 @@ def unzip_data(filename):
   zip_ref.extract_all()
   zip_ref.close()
   
-    
