@@ -28,12 +28,12 @@ def plot_loss_curve(history):
   plt.ylabel("Accuracy")
   plt.title("Accuracy")
   plt.legend()
-
+import tensorflow_hub as hub
+import tensorflow as tf
+import tensorflow.keras import layers.
 # Create and compile a Tensorflow Hub Feature Extractor
 def create_model(model_url, num_classes, IMG_SIZE =224):
-  import tensorflow_hub as hub
-  import tensorflow as tf
-  from tensorflow.keras import layers
+ 
   """
   takes a tensorflow hub feature extractor mode URl, creates,compiles and returns it back.
   Input:
@@ -53,6 +53,7 @@ def create_model(model_url, num_classes, IMG_SIZE =224):
                                                                                                        
 #Create a function to unzip a zip file into current working directory
 # Since we are downloading and unzipping few files.
+import zipfile
 def unzip_data(filename):
   """
   Unzips filename in the current working directory
@@ -60,7 +61,7 @@ def unzip_data(filename):
   Input:
   filename ( str ): it is the filename path to the zip file which we need to unzip.
   """
-  import zipfile
+  
   zip_ref = zipfile.Zipfile(filename)
   zip_ref.extract_all()
   zip_ref.close()
