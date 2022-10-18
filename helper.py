@@ -30,7 +30,7 @@ def plot_loss_curve(history):
   plt.legend()
 import tensorflow_hub as hub
 import tensorflow as tf
-import tensorflow.keras import layers.
+import tensorflow.keras import layers
 # Create and compile a Tensorflow Hub Feature Extractor
 def create_model(model_url, num_classes, IMG_SIZE =224):
  
