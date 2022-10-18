@@ -48,7 +48,7 @@ def plot_loss_curve(history):
     #Create our own model.
     model = tf.keras.Sequential([ feature_extractor_layer, layers.Dense(10,activation = "softmax", name = "Output_Layer")])
     #Compile the model.
-    model.compile(loss = 'categorical_crossentropy', optimizer = tf.keras.optimizers.Adam(), metrics =['accuracy']))
+    model.compile(loss = 'categorical_crossentropy', optimizer = tf.keras.optimizers.Adam(), metrics =['accuracy'])
     return model
                                                                                                        
     #Create a function to unzip a zip file into current working directory
