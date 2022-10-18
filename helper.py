@@ -58,7 +58,7 @@ def plot_loss_curve(history):
       Unzips filename in the current working directory
       Args:
       Input:
-      filename ( str ): filename path to the zip file which we need to unzip.
+      filename ( str ): it is filename path to the zip file which we need to unzip.
       """
       import zipfile
       zip_ref = zipfile.Zipfile(filename)
