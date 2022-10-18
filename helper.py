@@ -49,5 +49,18 @@ def plot_loss_curve(history):
     model = tf.keras.Sequential([ feature_extractor_layer, layers.Dense(10,activation = "softmax", name = "Output_Layer")])
     #Compile the model.
     model.compile(loss = 'categorical_crossentropy', optimizer = tf.keras.optimizers.Adam(), metrics =['accuracy'))
-    return model                                                   
+    return model
                                                                                                        
+    #Create a function to unzip a zip file into current working directory
+    # Since we are downloading and unzipping few files.
+    def unzip_data(filename):
+      """
+      Unzips filename in the current working directory
+      Args:
+      Input:
+      filename ( str ): filename path to the zip file which we need to unzip.
+      """
+      import zipfile
+      zip_ref = zipfile.Zipfile(filename)
+      zip_ref.extract_all()
+      zip_ref.close()
