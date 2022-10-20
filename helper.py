@@ -62,7 +62,7 @@ def unzip_data(filename):
   filename ( str ): it is the filename path to the zip file which we need to unzip.
   """
   
-  zip_ref = zipfile.Zipfile(filename)
+  zip_ref = zipfile.ZipFile(filename)
   zip_ref.extract_all()
   zip_ref.close()
   
