@@ -65,4 +65,20 @@ def unzip_data(filename):
   zip_ref = zipfile.ZipFile(filename)
   zip_ref.extract_all()
   zip_ref.close()
+import os
+# Create a function to walk-through an image classification directory and calculate how many image files are available.
+def walk_through(dir_path):
+  """
+  walks through dir_path and calculates the number of image files in its folders and sub-folders
+  Input:
+  dir_path (str) : Target directory name
+  Output:
+  returns a printout of
+  Number of subdirectories in each path
+  Number of images ( files ) in each directory.
+  name of each subdirectory.
+  """
+  for dirpath, dirname , filenames in os.walk(dir_path):
+    print(f"There are {len(dirname)} directories and {len(filenames)} files in {dirpath})
+  
   
