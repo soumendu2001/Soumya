@@ -63,7 +63,7 @@ def unzip_data(filename):
   """
   
   zip_ref = zipfile.ZipFile(filename)
-  zip_ref.extract_all()
+  zip_ref.extractall()
   zip_ref.close()
 import os
 # Create a function to walk-through an image classification directory and calculate how many image files are available.
