@@ -79,6 +79,6 @@ def walk_through(dir_path):
   name of each subdirectory.
   """
   for dirpath, dirname , filenames in os.walk(dir_path):
-    print(f"There are {len(dirname)} directories and {len(filenames)} files in {dirpath})
+    print(f"There are {len(dirname)} directories and {len(filenames)} files in {dirpath}")
   
   
