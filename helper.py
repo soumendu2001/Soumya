@@ -22,6 +22,7 @@ def plot_loss_curve(history):
   plt.legend()
   
   #Plot accuracy
+  plt.figure()
   plt.plot(epochs, training_accuracy, label ="Training_Accuracy")
   plt.plot(epochs, validation_accuracy, label ="Validation Accuracy") 
   plt.xlabel("epochs")
