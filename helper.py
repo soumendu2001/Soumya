@@ -81,5 +81,23 @@ def walk_through(dir_path):
   """
   for dirpath, dirname , filenames in os.walk(dir_path):
     print(f"There are {len(dirname)} directories and {len(filenames)} files in {dirpath}")
-  
-  
+def load_and_prep(file_name, img_size = 224,scale = True):
+  """
+  loads and prepares and image mentioned in the filename to the size (224,224,3)
+  input:
+  file_name(str): Filename / path of the image
+  img_size (int): Dimension of the image to be specified and returned. By default it is 224.
+  scale (Boolean): To confirm if the image is scaled. default is True.
+  Output:
+  prepared image with the dimension (224,224,3)
+  """
+  #Read the file
+  img = tf.io.read_file(file_name)
+  #Decode the file
+  img = tf.image.decode_jpeg(img)
+  #resize the image
+  img = tf.image.resize(img,[img_size, img_size])
+  if scale:
+    return img/255.
+  else:
+    return img
