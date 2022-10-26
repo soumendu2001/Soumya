@@ -172,4 +172,38 @@ def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_s
   # Save the figure to the current working directory
   if savefig:
     fig.savefig("confusion_matrix.png")
-   
+# Function to evaluate: accuracy, precision, recall, f1-score
+def calculate_results(y_true, y_pred):
+  """
+  Calculates model accuracy, precision, recall and f1 score of a binary classification model.
+  Args:
+      y_true: true labels in the form of a 1D array
+      y_pred: predicted labels in the form of a 1D array
+  Returns a dictionary of accuracy, precision, recall, f1-score.
+  """
+  # Calculate model accuracy
+  model_accuracy = accuracy_score(y_true, y_pred) * 100
+  # Calculate model precision, recall and f1 score using "weighted average
+  model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true, y_pred, average="weighted")
+  model_results = {"accuracy": model_accuracy,
+                  "precision": model_precision,
+                  "recall": model_recall,
+                  "f1": model_f1}
+  return model_results   
+import datetime
+
+def create_tensorboard_callback(dir_name, experiment_name):
+  """
+  Creates a TensorBoard callback instand to store log files.
+  Stores log files with the filepath:
+    "dir_name/experiment_name/current_datetime/"
+  Args:
+    dir_name: target directory to store TensorBoard log files
+    experiment_name: name of experiment directory (e.g. efficientnet_model_1)
+  """
+  log_dir = dir_name + "/" + experiment_name + "/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+  tensorboard_callback = tf.keras.callbacks.TensorBoard(
+      log_dir=log_dir
+  )
+  print(f"Saving TensorBoard log files to: {log_dir}")
+  return tensorboard_callback
