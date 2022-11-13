@@ -183,6 +183,7 @@ def calculate_results(y_true, y_pred):
   """
   # Calculate model accuracy
   from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+  print("Showing modified function")
   model_accuracy = accuracy_score(y_true, y_pred) * 100
   # Calculate model precision, recall and f1 score using "weighted average
   model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true, y_pred, average="weighted")
